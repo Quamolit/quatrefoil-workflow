@@ -225,7 +225,7 @@
                         :by |-pxyJ-2j
                       |r $ {}
                         :data $ {}
-                          |T $ {} (:type :leaf) (:by |-pxyJ-2j) (:at 1634443649389) (:text |comp-demo)
+                          |T $ {} (:text |comp-demo) (:type :leaf) (:at 1634443649389) (:by |-pxyJ-2j)
                         :type :expr
                         :at 1634443649389
                         :by |-pxyJ-2j
@@ -939,20 +939,6 @@
                   :type :expr
                   :at 1620057203818
                   :by |-pxyJ-2j
-                |y $ {}
-                  :data $ {}
-                    |j $ {} (:text |app.comp.shapes) (:type :leaf) (:at 1634443512971) (:by |-pxyJ-2j)
-                    |r $ {} (:text |:refer) (:type :leaf) (:at 1620494612364) (:by |-pxyJ-2j)
-                    |v $ {}
-                      :data $ {}
-                        |j $ {} (:text |comp-shapes) (:type :leaf) (:at 1620494612364) (:by |-pxyJ-2j)
-                        |r $ {} (:text |comp-quilling) (:type :leaf) (:at 1624901852528) (:by |-pxyJ-2j)
-                      :type :expr
-                      :at 1620494612364
-                      :by |-pxyJ-2j
-                  :type :expr
-                  :at 1620494612364
-                  :by |-pxyJ-2j
               :type :expr
               :at 1583600289679
               :by nil
@@ -1228,58 +1214,6 @@
               |r $ {}
                 :data $ {}
                   |T $ {} (:text |{}) (:type :leaf) (:at 1583600289679) (:by |root) (:id |DMrsM9G3fv)
-                  |j $ {}
-                    :data $ {}
-                      |T $ {} (:text |:tasks) (:type :leaf) (:at 1583600289679) (:by |root) (:id |FSoqMKRheu)
-                      |j $ {}
-                        :data $ {}
-                          |T $ {} (:text |{}) (:type :leaf) (:at 1583600289679) (:by |root) (:id |C13zxGopQ6)
-                          |j $ {}
-                            :data $ {}
-                              |T $ {} (:text |100) (:type :leaf) (:at 1583600289679) (:by |root) (:id |jFqKHZjWc7)
-                              |j $ {}
-                                :data $ {}
-                                  |T $ {} (:text |{}) (:type :leaf) (:at 1583600289679) (:by |root) (:id |MtuZqHmeD0)
-                                  |j $ {}
-                                    :data $ {}
-                                      |T $ {} (:text |:id) (:type :leaf) (:at 1583600289679) (:by |root) (:id |PqAYclmiRM)
-                                      |j $ {} (:text |100) (:type :leaf) (:at 1583600289679) (:by |root) (:id |l7XYrORl6Y)
-                                    :type :expr
-                                    :at 1583600289679
-                                    :by nil
-                                    :id |-MKYXLGbxe
-                                  |r $ {}
-                                    :data $ {}
-                                      |T $ {} (:text |:text) (:type :leaf) (:at 1583600289679) (:by |root) (:id |M4Am_jD3b1)
-                                      |j $ {} (:text "||Initial task") (:type :leaf) (:at 1583600289679) (:by |root) (:id |lIb6xzjcyA)
-                                    :type :expr
-                                    :at 1583600289679
-                                    :by nil
-                                    :id |EDIJVPBEq7
-                                  |v $ {}
-                                    :data $ {}
-                                      |T $ {} (:text |:done?) (:type :leaf) (:at 1583600289679) (:by |root) (:id |eU8MS0Jai_)
-                                      |j $ {} (:text |false) (:type :leaf) (:at 1583600289679) (:by |root) (:id |OkkWAVDDOi)
-                                    :type :expr
-                                    :at 1583600289679
-                                    :by nil
-                                    :id |Zpj8OqH7VS
-                                :type :expr
-                                :at 1583600289679
-                                :by nil
-                                :id |8v3TwIMGs1
-                            :type :expr
-                            :at 1583600289679
-                            :by nil
-                            :id |edRSt9YkD9
-                        :type :expr
-                        :at 1583600289679
-                        :by nil
-                        :id |GEZ0FDWIDB
-                    :type :expr
-                    :at 1583600289679
-                    :by nil
-                    :id |Ag8Fm2X62j
                   |r $ {}
                     :data $ {}
                       |T $ {} (:text |:states) (:type :leaf) (:at 1620051319162) (:by |-pxyJ-2j)

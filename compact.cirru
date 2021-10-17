@@ -9,7 +9,6 @@
         ns app.comp.container $ :require
           quatrefoil.alias :refer $ group box sphere point-light ambient-light perspective-camera scene text
           quatrefoil.core :refer $ defcomp >>
-          app.comp.shapes :refer $ comp-shapes comp-quilling
       :defs $ {}
         |comp-container $ quote
           defcomp comp-container (store)
@@ -90,8 +89,6 @@
             println "|App started!"
         |*store $ quote
           defatom *store $ {}
-            :tasks $ {}
-              100 $ {} (:id 100) (:text "|Initial task") (:done? false)
             :states $ {}
               :cursor $ []
         |dispatch! $ quote
