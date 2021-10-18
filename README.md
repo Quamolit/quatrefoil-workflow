@@ -2,9 +2,9 @@
 Quatrefoil Workflow
 ----
 
-> Based on [Quatrefoil](https://github.com/Quamolit/quatrefoil.calcit).
+> Based on [Quatrefoil](https://github.com/Quatrefoil-GL/quatrefoil).
 
-Demo http://repo.quamolit.org/quatrefoil-workflow/
+Demo http://r.tiye.me/Quatrefoil-GL/quatrefoil-workflow/
 
 ### Develop
 
