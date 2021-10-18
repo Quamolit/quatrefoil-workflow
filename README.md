@@ -19,6 +19,10 @@ cr --emit-js -1
 yarn vite
 ```
 
+### Workflow
+
+https://github.com/Quamolit/quatrefoil-workflow
+
 ### License
 
 MIT
