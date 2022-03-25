@@ -19,13 +19,7 @@
                 state $ either (:data states)
                   {} $ :tab :portal
                 tab $ :tab state
-              scene ({})
-                perspective-camera $ {} (:fov 45)
-                  :aspect $ / js/window.innerWidth js/window.innerHeight
-                  :near 0.1
-                  :far 1000
-                  :position $ [] 0 0 100
-                comp-demo
+              scene ({}) (comp-demo)
                 ambient-light $ {} (:color 0x666666)
                 ; point-light $ {} (:color 0xffffff) (:intensity 1.4) (:distance 200)
                   :position $ [] 20 40 50
@@ -75,6 +69,7 @@
           "\"bottom-tip" :default hud!
           "\"./calcit.build-errors" :default build-errors
           app.config :refer $ dev?
+          quatrefoil.dsl.object3d-dom :refer $ set-perspective-camera!
       :defs $ {}
         |render-app! $ quote
           defn render-app! () (; println "|Render app:")
@@ -82,6 +77,11 @@
         |main! $ quote
           defn main! ()
             when dev? (load-console-formatter!) (println "\"Run in dev mode")
+            set-perspective-camera! $ {} (:fov 45)
+              :aspect $ / js/window.innerWidth js/window.innerHeight
+              :near 0.1
+              :far 1000
+              :position $ [] 0 0 100
             inject-tree-methods
             let
                 canvas-el $ js/document.querySelector |canvas
