@@ -1,15 +1,10 @@
 
 {} (:package |app)
-  :configs $ {} (:init-fn |app.main/main!) (:reload-fn |app.main/reload!)
+  :configs $ {} (:init-fn |app.main/main!) (:reload-fn |app.main/reload!) (:version |0.0.4)
     :modules $ [] |touch-control/ |pointed-prompt/ |quatrefoil/
-    :version |0.0.4
   :entries $ {}
   :files $ {}
     |app.comp.container $ {}
-      :ns $ quote
-        ns app.comp.container $ :require
-          quatrefoil.alias :refer $ group box sphere point-light ambient-light perspective-camera scene text
-          quatrefoil.core :refer $ defcomp >>
       :defs $ {}
         |comp-container $ quote
           defcomp comp-container (store)
@@ -48,31 +43,29 @@
                 :click $ fn (e d!) (d! :canvas nil)
             point-light $ {} (:color 0xffff55) (:intensity 2) (:distance 200)
               :position $ [] -10 20 0
-    |app.updater $ {}
       :ns $ quote
-        ns app.updater $ :require
-          quatrefoil.cursor :refer $ update-states
+        ns app.comp.container $ :require
+          quatrefoil.alias :refer $ group box sphere point-light ambient-light perspective-camera scene text
+          quatrefoil.core :refer $ defcomp >>
+    |app.config $ {}
       :defs $ {}
-        |updater $ quote
-          defn updater (store op op-data)
-            case-default op store $ :states (update-states store op-data)
+        |dev? $ quote
+          def dev? $ = "\"dev" (get-env "\"mode")
+      :ns $ quote (ns app.config)
     |app.main $ {}
-      :ns $ quote
-        ns app.main $ :require
-          "\"@quatrefoil/utils" :refer $ inject-tree-methods
-          quatrefoil.core :refer $ render-canvas! *global-tree clear-cache! init-renderer! handle-key-event handle-control-events
-          app.comp.container :refer $ comp-container
-          app.updater :refer $ [] updater
-          "\"three" :as THREE
-          touch-control.core :refer $ render-control! control-states start-control-loop! clear-control-loop!
-          "\"bottom-tip" :default hud!
-          "\"./calcit.build-errors" :default build-errors
-          app.config :refer $ dev?
-          quatrefoil.dsl.object3d-dom :refer $ set-perspective-camera!
       :defs $ {}
-        |render-app! $ quote
-          defn render-app! () (; println "|Render app:")
-            render-canvas! (comp-container @*store) dispatch!
+        |*store $ quote
+          defatom *store $ {}
+            :states $ {}
+              :cursor $ []
+        |dispatch! $ quote
+          defn dispatch! (op op-data)
+            if (list? op)
+              recur :states $ [] op op-data
+              let
+                  store $ updater @*store op op-data
+                ; js/console.log |Dispatch: op op-data store
+                reset! *store store
         |main! $ quote
           defn main! ()
             when dev? (load-console-formatter!) (println "\"Run in dev mode")
@@ -91,18 +84,6 @@
             render-control!
             handle-control-events
             println "|App started!"
-        |*store $ quote
-          defatom *store $ {}
-            :states $ {}
-              :cursor $ []
-        |dispatch! $ quote
-          defn dispatch! (op op-data)
-            if (list? op)
-              recur :states $ [] op op-data
-              let
-                  store $ updater @*store op op-data
-                ; js/console.log |Dispatch: op op-data store
-                reset! *store store
         |reload! $ quote
           defn reload! () $ if (some? build-errors) (hud! "\"error" build-errors)
             do (hud! "\"ok~" nil) (clear-cache!) (clear-control-loop!) (handle-control-events) (remove-watch *store :changes)
@@ -110,8 +91,26 @@
               render-app!
               set! js/window.onkeydown handle-key-event
               println "|Code updated."
-    |app.config $ {}
-      :ns $ quote (ns app.config)
+        |render-app! $ quote
+          defn render-app! () (; println "|Render app:")
+            render-canvas! (comp-container @*store) dispatch!
+      :ns $ quote
+        ns app.main $ :require
+          "\"@quatrefoil/utils" :refer $ inject-tree-methods
+          quatrefoil.core :refer $ render-canvas! *global-tree clear-cache! init-renderer! handle-key-event handle-control-events
+          app.comp.container :refer $ comp-container
+          app.updater :refer $ [] updater
+          "\"three" :as THREE
+          touch-control.core :refer $ render-control! control-states start-control-loop! clear-control-loop!
+          "\"bottom-tip" :default hud!
+          "\"./calcit.build-errors" :default build-errors
+          app.config :refer $ dev?
+          quatrefoil.dsl.object3d-dom :refer $ set-perspective-camera!
+    |app.updater $ {}
       :defs $ {}
-        |dev? $ quote
-          def dev? $ = "\"dev" (get-env "\"mode")
+        |updater $ quote
+          defn updater (store op op-data)
+            case-default op store $ :states (update-states store op-data)
+      :ns $ quote
+        ns app.updater $ :require
+          quatrefoil.cursor :refer $ update-states
