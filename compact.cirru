@@ -50,7 +50,7 @@
     |app.config $ {}
       :defs $ {}
         |dev? $ quote
-          def dev? $ = "\"dev" (get-env "\"mode")
+          def dev? $ = "\"dev" (get-env "\"mode" "\"release")
       :ns $ quote (ns app.config)
     |app.main $ {}
       :defs $ {}
