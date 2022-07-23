@@ -1,7 +1,7 @@
 
 {} (:package |app)
   :configs $ {} (:init-fn |app.main/main!) (:reload-fn |app.main/reload!) (:version |0.0.4)
-    :modules $ [] |touch-control/ |pointed-prompt/ |quatrefoil/
+    :modules $ [] |touch-control/ |pointed-prompt/ |quatrefoil/ |quaternion/
   :entries $ {}
   :files $ {}
     |app.comp.container $ {}

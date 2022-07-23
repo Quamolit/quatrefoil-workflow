@@ -1,7 +1,7 @@
 
 {}
   :configs $ {} (:compact-output? true) (:init-fn |app.main/main!) (:output |src) (:port 6001) (:reload-fn |app.main/reload!) (:storage-key |calcit.cirru) (:version |0.0.4)
-    :modules $ [] |touch-control/ |pointed-prompt/ |quatrefoil/
+    :modules $ [] |touch-control/ |pointed-prompt/ |quatrefoil/ |quaternion/
   :entries $ {}
   :ir $ {} (:package |app)
     :files $ {}

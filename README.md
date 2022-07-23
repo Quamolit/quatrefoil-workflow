@@ -15,6 +15,7 @@ yarn
 
 # also get calcit deps into `~/.config/calcit/modules/`
 mkdir -p ~/.config/calcit/modules/ && cd ~/.config/calcit/modules/
+&& git clone https://github.com/calcit-lang/quaternion.git
 && git clone https://github.com/Quatrefoil-GL/touch-control.git
 && git clone https://github.com/Quatrefoil-GL/quatrefoil.git
 && git clone https://github.com/mvc-works/pointed-prompt.git
